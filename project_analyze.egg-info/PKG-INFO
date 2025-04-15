@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: project-analyze
+Version: 0.1.0
+Summary: Project Analysis Tool for code standards and documentation
+Author: Your Name
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: gitpython
+Requires-Dist: PyGithub
+Requires-Dist: python-gitlab
+Requires-Dist: pandas
+Requires-Dist: jinja2
+Requires-Dist: markdown
+Requires-Dist: ruff
+Requires-Dist: pylint
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: beautifulsoup4
+Requires-Dist: lxml
+Dynamic: author
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: summary

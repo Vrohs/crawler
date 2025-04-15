@@ -1,0 +1,12 @@
+gitpython
+PyGithub
+python-gitlab
+pandas
+jinja2
+markdown
+ruff
+pylint
+matplotlib
+seaborn
+beautifulsoup4
+lxml

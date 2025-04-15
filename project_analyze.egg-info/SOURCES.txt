@@ -1,0 +1,12 @@
+cli.py
+doc_analysis.py
+patterns.py
+repo.py
+report.py
+setup.py
+project_analyze.egg-info/PKG-INFO
+project_analyze.egg-info/SOURCES.txt
+project_analyze.egg-info/dependency_links.txt
+project_analyze.egg-info/entry_points.txt
+project_analyze.egg-info/requires.txt
+project_analyze.egg-info/top_level.txt

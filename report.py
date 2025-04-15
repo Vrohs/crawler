@@ -9,12 +9,41 @@ def generate_report(repo_name, lang_stats, tech_stack, code_patterns, doc_info):
         'tech_stack': tech_stack,
         'code_patterns': code_patterns,
         'docs': doc_info['docs'],
-        'guidelines': doc_info['guidelines']
+        'guidelines': doc_info['guidelines'],
+        'quick_start': doc_info.get('quick_start', []),
+        'build_commands': doc_info.get('build_commands', []),
+        'test_commands': doc_info.get('test_commands', []),
+        'workflow': doc_info.get('workflow', []),
+        'pitfalls': doc_info.get('pitfalls', [])
     }
     return template.render(**summary)
 
 REPORT_TEMPLATE = '''
 # Project Analysis Report: {{ repo_name }}
+
+## Quick Start for Contributors
+{% if quick_start %}
+{% for step in quick_start %}- {{ step }}
+{% endfor %}
+{% else %}
+- No explicit quick start found. See build and test commands below.
+{% endif %}
+
+### Build Commands
+{% for cmd in build_commands %}- {{ cmd }}
+{% endfor %}
+
+### Test Commands
+{% for cmd in test_commands %}- {{ cmd }}
+{% endfor %}
+
+### Workflow & PR Process
+{% for w in workflow %}- {{ w }}
+{% endfor %}
+
+### Common Pitfalls & Notes
+{% for p in pitfalls %}- {{ p }}
+{% endfor %}
 
 ## Project Overview
 - **Languages Detected:** {% for lang, count in languages %}{{ lang }} ({{ count }}) {% endfor %}
@@ -50,10 +79,12 @@ REPORT_TEMPLATE = '''
     {% for t in guidelines.get('testing', []) %}- {{ t }}{% endfor %}
 
 ## Recommendations
+- Follow the quick start and build/test steps above for local setup.
 - Ensure consistent naming conventions across all files.
 - Add or improve docstrings and comments for better maintainability.
 - Follow documented setup and workflow instructions for contributions.
 - Add more tests or clarify testing procedures if missing.
+- Review common pitfalls and notes above before contributing.
 
 ---
 **Summary View:**
